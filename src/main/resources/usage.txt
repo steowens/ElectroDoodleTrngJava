@@ -1,0 +1,14 @@
+Usage: java -jar Trng [option]
+
+Where [option] is one of:
+
+-h or --help:
+	 Show help
+-o <filepath> or --output-file <filepath>:
+	Emit binary randomness to a file
+-l <length> or --length <length>:
+	Define length of output (used in conjunction with -o or --output-file)
+	
+Note option format of the type -o=x or --option=x is not supported.  
+Use space delimiters between options and their arguments.
+
