@@ -35,3 +35,25 @@ You can now execute
 
     $ trng-random [--length nnnnn] --output-file outputFilePath
 
+
+Now that you have the ability to create randomness in a file you can use this as a source of entropy for OpenSSL.
+
+    $ trng-random --output-file entropy.bin --length 4096
+    Creating randomness file: entropy.bin
+    Progress indicator '.' == 1024 bytes:
+    ....
+    Wrote 4096 bytes of randomness to entropy.bin
+    Finished.
+    $ openssl genrsa -out my.key -aes256 -rand entropy.bin 4096
+    4096 semi-random bytes loaded
+    Generating RSA private key, 4096 bit long modulus
+    ............++
+    .........................................................................................++
+    e is 65537 (0x10001)
+    Enter pass phrase for my.key:
+    Verifying - Enter pass phrase for my.key:
+    
+    
+    
+    
+    
